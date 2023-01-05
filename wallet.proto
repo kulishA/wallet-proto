@@ -1,0 +1,23 @@
+syntax = "proto3";
+
+package wallet;
+
+option go_package = "/proto";
+
+//service LocationApi {
+//  rpc GetFirstNearbyShelter(LocationRequest) returns (ShelterResponse);
+//  rpc GetFirstNearbyHeatingPoint(LocationRequest) returns (HeatingPointResponse);
+//}
+
+message CreateUserRequest {
+  string token = 1;
+  string tg_user_id = 2;
+}
+
+message CreateUserResponse {
+  bool status = 1;
+}
+
+service WalletApi {
+  rpc AddUser(CreateUserRequest) returns (CreateUserResponse);
+}
